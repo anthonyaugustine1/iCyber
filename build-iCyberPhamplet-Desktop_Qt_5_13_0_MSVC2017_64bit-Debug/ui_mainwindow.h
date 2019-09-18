@@ -36,12 +36,12 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(640, 314);
+        MainWindow->resize(1300, 650);
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
         tabWidget = new QTabWidget(centralWidget);
         tabWidget->setObjectName(QString::fromUtf8("tabWidget"));
-        tabWidget->setGeometry(QRect(0, 0, 641, 311));
+        tabWidget->setGeometry(QRect(0, 0, 1300, 650));
         tab = new QWidget();
         tab->setObjectName(QString::fromUtf8("tab"));
         textBrowser = new QTextBrowser(tab);
@@ -67,7 +67,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        tabWidget->setCurrentIndex(3);
+        tabWidget->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
