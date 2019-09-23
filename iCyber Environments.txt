@@ -1,0 +1,6 @@
+Here is the list of environments that iCyber-Security can operate on:
+1. OS software
+2. Windows Software
+3. Linux Software
+4. Rasberry Pi
+5. All network devices
