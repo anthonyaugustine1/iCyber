@@ -48,22 +48,62 @@
 **
 ****************************************************************************/
 
-#include <QApplication>
+#ifndef TABDIALOG_H
+#define TABDIALOG_H
 
-#include "tabdialog.h"
+#include <QDialog>
 
-int main(int argc, char *argv[])
+QT_BEGIN_NAMESPACE
+class QDialogButtonBox;
+class QFileInfo;
+class QTabWidget;
+QT_END_NAMESPACE
+
+//! [0]
+class GeneralTab : public QWidget
 {
-    QApplication app(argc, argv);
-    QString fileName;
+    Q_OBJECT
 
-    if (argc >= 2)
-        fileName = argv[1];
-    else
-        fileName = ".";
+public:
+    explicit GeneralTab(const QFileInfo &fileInfo, QWidget *parent = 0);
+};
+//! [0]
 
-    TabDialog tabdialog(fileName);
-    tabdialog.show();
 
-    return app.exec();
-}
+//! [1]
+class PermissionsTab : public QWidget
+{
+    Q_OBJECT
+
+public:
+    explicit PermissionsTab(const QFileInfo &fileInfo, QWidget *parent = 0);
+};
+//! [1]
+
+
+//! [2]
+class ApplicationsTab : public QWidget
+{
+    Q_OBJECT
+
+public:
+    explicit ApplicationsTab(const QFileInfo &fileInfo, QWidget *parent = 0);
+};
+//! [2]
+
+
+//! [3]
+class TabDialog : public QDialog
+{
+    Q_OBJECT
+
+public:
+    explicit TabDialog(const QString &fileName, QWidget *parent = 0);
+
+private:
+    QTabWidget *tabWidget;
+    QDialogButtonBox *buttonBox;
+};
+//! [3]
+
+#endif
